@@ -2,36 +2,93 @@
 <html>
 <head>
 	<title>HTML Form</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		.row {
+			margin-bottom: 10px;
+		}
+	</style>
 </head>
 <body>
 	<p><b>Form gửi dữ liệu</b></p>
 	<form action="https://vnexpress.net">
-		Title report:<br>
-		<input type="text" name="title"><br>
-		Content:<br>
-		<input type="text" name="content" cols="40" rows="5"><br>
-		Sex:<br>
-		<input type="radio" name="sex" value="male"> Male<br>
-		<input type="radio" name="sex" value="female"> Female<br>
-		<input type="radio" name="sex" value="other"> Other<br>
-		Category:<br>	
-		<select name="hobbies">
-			<option value="music">Âm nhạc</option>
-			<option value="sport">Thể thao</option>
-			<option value="politic">Chính trị</option>
-			<option value="economy">Kinh tế</option>
-		</select><br>
-		Hobbies:<br>
-		<input type="checkbox" name="hobbies" value="music"> Music<br>
-		<input type="checkbox" name="hobbies" value="football"> Football<br>
-		<input type="checkbox" name="hobbies" value="chess"> Chess<br>
-		<input type="checkbox" name="hobbies" value="dance"> Dnace<br>
-		Full name:<br>
-		<input type="text" name="name"><br>
-		Email:<br>
-		<input type="text" name="email"><br>
-		<input type="submit" name="submitBtn" value="submit">
-		<input type="reset" name="resetBtn">
+		<div class="container">
+		  	<div class="row">
+		    	<div class="col-2">
+		    		Title report:
+		    	</div>
+		    	<div class="col-8">
+		    		<input type="text" name="title">
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		Content:
+		    	</div>
+		    	<div class="col-8">
+		    		<textarea name="Text1" cols="40" rows="5"></textarea>
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		Sex:
+		    	</div>
+		    	<div class="col-8">
+		    		<input type="radio" name="sex" value="male"> Male<br>
+					<input type="radio" name="sex" value="female"> Female<br>
+					<input type="radio" name="sex" value="other"> Other
+					<br>
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		Category:
+		    	</div>
+		    	<div class="col-8">
+		    		<select name="hobbies">
+						<option value="music">Âm nhạc</option>
+						<option value="sport">Thể thao</option>
+						<option value="politic">Chính trị</option>
+						<option value="economy">Kinh tế</option>
+					</select>
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		Hobbies:
+		    	</div>
+		    	<div class="col-8">
+		    		<input type="checkbox" name="hobbies" value="music"> Music<br>
+					<input type="checkbox" name="hobbies" value="football"> Football<br>
+					<input type="checkbox" name="hobbies" value="chess"> Chess<br>
+					<input type="checkbox" name="hobbies" value="dance"> Dance<br>
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		Full name:
+		    	</div>
+		    	<div class="col-8">
+		    		<input type="text" name="name">
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		Email:
+		    	</div>
+		    	<div class="col-8">
+		    		<input type="text" name="email">
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		 		<div class="col-2">
+		    	</div>
+		    	<div class="col-8">
+					<input type="submit" name="submitBtn" value="submit">
+					<input type="reset" name="resetBtn">
+		    	</div>
+		 	</div>
+		</div>
 	</form>
 </body>
 </html>
