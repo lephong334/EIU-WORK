@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Form</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+	<h1>Form gửi dữ liệu</h1>
+	<form action="http://vnexpress.net">
+		<div class="container">
+		  	<div class="row">
+		    	<div class="col-2">
+		    		<label>Title report:</label>
+		    	</div>
+		    	<div class="col-8">
+		    		<input type="text" name="title">
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		<label>Content:</label>
+		    	</div>
+		    	<div class="col-8">
+		    		<textarea name="Text1" cols="40" rows="5"></textarea>
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		<label>Sex:</label>
+		    	</div>
+		    	<div class="col-8">
+		    		<div class="gender">
+		    			<input type="radio" name="sex" value="male"> Male
+		    		</div>
+					<div class="gender">
+						<input type="radio" name="sex" value="female"> Female
+					</div>
+					<div class="gender">
+						<input type="radio" name="sex" value="other"> Other
+					</div>
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		<label>Category:</label>
+		    	</div>
+		    	<div class="col-8">		    		
+		    		<select name="hobbies">
+						<option value="music">Âm nhạc</option>
+						<option value="sport">Thể thao</option>
+						<option value="politic">Chính trị</option>
+						<option value="economy">Kinh tế</option>
+					</select>		    		
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		<label>Hobbies:</label>
+		    	</div>
+		    	<div class="col-8">
+		    		<fieldset>
+		    			<legend>Chọn nhiều sở thích</legend>
+			    		<input type="checkbox" name="hobbies" value="music"> Music<br>
+						<input type="checkbox" name="hobbies" value="football"> Football<br>
+						<input type="checkbox" name="hobbies" value="chess"> Chess<br>
+						<input type="checkbox" name="hobbies" value="dance"> Dance<br>						
+		    		</fieldset>
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		<label>Full name:</label>
+		    	</div>
+		    	<div class="col-8">
+		    		<input type="text" name="name">
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		    	<div class="col-2">
+		    		<label>Email:</label>
+		    	</div>
+		    	<div class="col-8">
+		    		<input type="text" name="email">
+		    	</div>
+		 	</div>
+		 	<div class="row">
+		 		<div class="col-2">
+		    	</div>
+		    	<div class="col-8">
+					<input type="submit" name="submitBtn" value="Submit">
+					<input type="reset" name="resetBtn">
+		    	</div>
+		 	</div>
+		</div>
+	</form>
+</body>
+</html>
