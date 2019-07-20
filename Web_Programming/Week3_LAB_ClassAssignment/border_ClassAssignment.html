@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Border styles</title>
+	<style type="text/css">
+		.non-border {
+			border: none;
+		}
+		.dotted-border {
+			border: dotted;
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			background-color: grey;
+		}
+		.mixed-border {
+			height: 500px;
+			border-top: black 1px dashed;
+			border-bottom: green 3px groove;
+			border-right: blue 2px double;
+			border-left: red 2px solid;
+
+			border-radius: 3px 300px 0px 20%;
+			
+			background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNk9DQe_mCBdm7is8zwaTESQWWmo7pz_zukXcd6zvumMxsBF-U");
+
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<p class="non-border">None border</p>
+	<p class="dotted-border">Dotted border</p>
+	<p class="mixed-border">Other styles border</p>
+</body>
+</html>

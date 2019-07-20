@@ -1,0 +1,14 @@
+.employees {
+	border-collapse: collapse;
+}
+.employees thead {
+	color: white;
+	background-color: #36f740;
+}
+.employees td {
+	padding: 8px;	
+	border: 1px solid black;
+}
+.employees tr:nth-child(even) {
+	background-color: #f7db86;
+}
