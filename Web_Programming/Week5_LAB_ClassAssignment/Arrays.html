@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrays</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		function printStudentList() {
+			for (let stu in students) {
+			document.writeln(students[stu] + '<br>');
+			}
+		};
+
+		function printListWithParameter(listToPrint) {
+			for (let name in listToPrint) {
+			document.writeln(listToPrint[name] + '<br>');
+			}
+		};
+
+		function checkExistence(checkName, list) {
+
+			var n = list.indexOf(checkName);
+			if (n > -1) {
+				return "Có tồn tại";
+			}
+			else {
+				return "Không tồn tại";		
+			}
+		};
+
+		var students = [
+			"Dau Tran Le Phong", 
+			"Le Tran Phong Dau", 
+			"Le askd Phong Aso", 
+			"Tran Le Phong Dau", 
+			"Le Phong Tran Dau"
+		];
+
+		var result = checkExistence("Dau Tran Le Phong", students);
+		document.writeln('<br><b>' + "Check: " + result + '</b><br>');	
+
+		printListWithParameter(students);
+
+		students[2] = "Phong Dau Tran Le";
+		document.writeln('<br><b>' + "Sau sửa" + '</b><br>');
+
+		printListWithParameter(students);
+
+		students.push("Nguyen Thi C");
+		document.writeln('<br><b>' + "Thêm Nguyen Thi C" + '</b><br>');
+
+		printStudentList();
+
+		students.pop();
+		document.writeln('<br><b>' + "Xoá Nguyen Thi C vì thêm nhầm lớp" + '</b><br>');
+
+		printStudentList();
+
+		students.unshift("Lớp trưởng 1A: Pep");
+		document.writeln('<br><b>' + "Thêm lớp trưởng" + '</b><br>');
+
+		printStudentList();
+
+		students.shift();
+		document.writeln('<br><b>' + "Xoá lớp trưởng" + '</b><br>');
+
+		printStudentList();
+
+		var studentsRe = students.reverse();
+		document.writeln('<br><b>' + "Đảo ngược" + '</b><br>');
+
+		for (let stuRe in studentsRe) {
+			document.writeln(studentsRe[stuRe] + '<br>');
+		}
+
+		var indexOf = students.indexOf("Phong Dau Tran Le");
+		document.writeln('<br><b>' + "Index Of: Phong Dau Tran Le -> " + indexOf + '</b><br>');
+
+		var lastIndexOf = students.lastIndexOf("Dau Tran Le Phong");
+		document.writeln('<br><b>' + "Last Index Of: Dau Tran Le Phong -> " + lastIndexOf + '</b><br>');
+
+	</script>
+
+</body>
+</html>
