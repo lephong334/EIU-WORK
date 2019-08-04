@@ -1,0 +1,27 @@
+.main {
+	border-radius: 5px;
+	background-color: #d7dade;
+	max-width: 500px;
+	padding: 10px;
+}
+.container {
+	border: 1px solid black;
+	background-color: white;
+	padding: 10px;
+	margin-bottom: 30px;
+}
+.information {
+	display: inline-block;
+	width: 350px;
+}
+.images {
+	display: inline-block;
+}
+.images img {
+	width: 100px;
+	height: 100px;
+}
+button {
+	background-image: url(btn.png);
+	float: right;
+}
