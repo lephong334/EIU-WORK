@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MMSA of N</title>
+</head>
+<body>
+	<p>
+		<input type="number" name="" id="numb">
+		<button onclick="addInput()">Add</button>
+		<button onclick="MMSAofN()">Calculate</button>
+	</p>
+	<p id="output">
+		
+	</p>
+	<script type="text/javascript">
+		var array = new Array();
+		function addInput() {
+			array.unshift(document.getElementById("numb").value);
+		}
+
+		function MMSAofN() {
+			var sum = 0;
+			var average = 0;
+			var min = array[0];
+			var max = array[0];
+			var alength = array.length;
+
+			for (var i = 0; i < alength; i++) {
+				sum += parseFloat(array[i]);
+				if (array[i] < min) {
+					min = array[i];
+				}
+				if (array[i] > max) {
+					max = array[i]
+				}
+			}
+
+			average = sum / alength;
+
+			var output = "min = " + min + "<br>" +
+						 "max = " + max + "<br>" +
+						 "sum = " + sum + "<br>" +
+						 "avg = " + average + "<br>";
+
+			return document.getElementById("output").innerHTML = output;
+		}
+
+	</script>
+</body>
+</html>

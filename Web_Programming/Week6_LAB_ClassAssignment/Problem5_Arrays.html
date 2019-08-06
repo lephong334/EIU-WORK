@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lexicographically compare</title>
+</head>
+<body>
+	<p>
+		<input type="text" name="" id="str1">
+		<input type="text" name="" id="str2">
+		<button onclick="compL()">Go</button>
+	</p>
+	<p id="output">
+		
+	</p>
+	<script type="text/javascript">
+		function compL() {			
+			var arr1 = document.getElementById("str1").value.split();
+			var arr2 = document.getElementById("str2").value.split();
+
+			var leng = arr1.length > arr2.length ? arr2.length : arr1.length;
+
+			for (var i = 0; i < leng; i++) {
+				if (arr1[i] < arr2[i]) {
+					return document.getElementById("output").innerHTML = "<";
+				}
+				if (arr1[i] > arr2[i]) {
+					return document.getElementById("output").innerHTML = ">";
+				}
+			}
+
+			if (arr1.length > arr2.length) {
+                return document.getElementById("output").innerHTML = "<";
+            } 
+            else if (arr1.length < arr2.length) {
+                return document.getElementById("output").innerHTML = ">";
+            } 
+            else document.getElementById("output").innerHTML = "=";
+		}
+	</script>
+</body>
+</html>

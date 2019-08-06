@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data types and Variables</title>
+</head>
+<body>
+	<table border="1" id="problem1">
+		<tr>
+			<td>str</td>
+			<td>parseInt(str)</td>
+			<td>parseFloat(str)</td>
+			<td>Number(str)</td>
+			<td>+str</td>
+			<td>str | 0</td>
+		</tr>
+		<tr>
+			<td>1234</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>1238abc</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>0.15</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>3.14ivan</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Infinity</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>99999999999999999999</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td> 
+			<td></td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">		
+		var elements = document.getElementById("problem1").children;
+		var tdElements = elements[0].children;
+		for (var i = 1; i <= 6; i++) {
+			tdElements[i].children[1].innerHTML = parseInt(tdElements[i].children[0].innerHTML);
+			tdElements[i].children[2].innerHTML = parseFloat(tdElements[i].children[0].innerHTML);
+			tdElements[i].children[3].innerHTML = Number(tdElements[i].children[0].innerHTML);
+			tdElements[i].children[4].innerHTML = +(tdElements[i].children[0].innerHTML);
+			tdElements[i].children[5].innerHTML = tdElements[i].children[0].innerHTML | 0;
+		}
+		// document.getElementById("int-1").innerHTML = parseInt('1234');
+
+	</script>
+</body>
+</html>

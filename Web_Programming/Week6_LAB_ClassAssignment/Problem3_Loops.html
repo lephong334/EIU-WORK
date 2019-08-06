@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Number 1 to N</title>
+</head>
+<body>
+	<p>
+		<input type="number" name="" id="listN">
+		<button onclick="number1ToN()">Test</button>
+	</p>
+	<p id="output">
+		
+	</p>
+	<script type="text/javascript">	
+		var output = "";	
+		function number1ToN() {
+			var n = document.getElementById("listN").value;			
+			for (var i = 1; i <= n; i++) {
+				output += i + " ";
+			}
+			return document.getElementById("output").innerHTML = output;
+		}
+	</script>
+</body>
+</html>

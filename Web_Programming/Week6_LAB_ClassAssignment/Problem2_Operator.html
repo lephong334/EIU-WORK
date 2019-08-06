@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prime check</title>
+</head>
+<body>
+	<p>
+		<input type="number" name="" id="prime_Check">
+		<button onclick="primeCheck()">Test</button>
+	</p>
+	<script type="text/javascript">		
+		function primeCheck() {
+			var n = document.getElementById("prime_Check").value;
+			if (n < 2) {
+				document.writeln("False");
+				return;
+			}
+			else {
+				for (var i = 2; i < n; i++) {
+					if (n % i == 0) {
+						document.writeln("False")
+						return;
+					}
+					else {
+						document.writeln("True");
+						return
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>
