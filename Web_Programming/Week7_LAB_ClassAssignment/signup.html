@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<form action="/action_page.php">
+		  	<div class="form-group">
+			    <label for="name">Name:</label>
+			    <input type="text" class="form-control" id="name" name="name">
+			    <p id="thongbao-name"></p>
+		  	</div>
+		  	<div class="form-group">
+			    <label for="phone">Phone:</label>
+			    <input type="number" class="form-control" id="phone" name="phone">
+			    <p id="thongbao-phone"></p>
+		  	</div>
+		  	<div class="form-group">
+			    <label for="email">Email address:</label>
+			    <input type="email" class="form-control" id="email" name="email">
+		  	</div>
+			<div class="form-group">
+				<label for="pwd">Password:</label>
+			    <input type="password" class="form-control" id="pwd" name="pwd">
+			</div>
+			<div class="form-group">
+			    <label for="cpwd">Confirm password:</label>
+			    <input type="password" class="form-control" id="cpwd" name="cpwd">
+			    <p id="thongbao-cpwd"></p>
+		  	</div>
+		  	<div class="checkbox">
+		    	<label><input type="checkbox"> Remember me</label>
+		  	</div>
+		  	<button type="button" class="btn btn-default" onclick="checkForm()">Submit</button>
+		</form>
+	</div>
+	
+	<script type="text/javascript">
+
+		function checkForm() {
+			//kiểm tra tên 6 kí tự
+			var name = document.getElementById("name").value;
+			if (name.length < 6) {
+				console.log("Nhỏ hơn 6");
+				document.getElementById("thongbao-name").innerHTML = "Name must be contains 6 or more characters"
+			}
+			console.log(name);				
+
+			//kiểm tra số điện thoại
+			var phone = document.getElementById("phone").value;
+			if (phone.length < 10) {
+				document.getElementById("thongbao-phone").innerHTML = "Phone must be contains 10 or more characters"
+			}
+
+			//kiểm tra pass - confirm pass
+			var pwd = document.getElementById("pwd").value;
+			var cpwd = document.getElementById("cpwd").value;
+			if (pwd !== cpwd) {
+				document.getElementById("thongbao-cpwd").innerHTML = "Confirm password does not match"
+			}
+		}
+
+
+	</script>
+</body>
+</html>

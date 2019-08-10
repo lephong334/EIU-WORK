@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frequent number</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var numberList = [3,7,8,5,4,3,2,3,1,2,5,3];
+		function findFrequentNumber(arr) {			
+			var count = 0;
+			var maxFreq = 0;
+			var maxNum = 0;
+			for (var i = 0; i < arr.length; i++) {
+				for (var j = i; j < arr.length; j++) {
+					if (arr[j] == arr[i]) {
+						count++;
+					}
+				}
+				if (count >= maxFreq) {
+					maxFreq = count;
+					maxNum = arr[i];
+				}				
+				count = 0;
+			}
+			return document.writeln(maxNum + " " + maxFreq + "(times)");
+		}
+
+		findFrequentNumber(numberList);
+	</script>
+</body>
+</html>

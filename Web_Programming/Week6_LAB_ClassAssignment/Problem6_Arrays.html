@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var arr = new Array(8,7,9,8,5,1,5,4,3,7);
+        function sortNumber() {
+            var index = 0;
+            for (i = 0; i < arr.length; i++) {
+                for (j = i; j < arr.length; j++) {
+                    if (arr[i] >= arr[j]) {
+                        index = arr[j];
+                        arr[j] = arr[i];
+                        arr[i] = index;
+                    }
+                }
+            }
+
+            for (let index in arr){
+                document.writeln(arr[index] + "<br>");
+            }
+        }
+        sortNumber();
+    </script>
+</body>
+</html>
