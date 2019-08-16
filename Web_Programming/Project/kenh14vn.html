@@ -2,37 +2,413 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<title>Kênh tin tức giải trí - Xã hội - Kenh14.vn</title>
 </head>
-<body>
-	<header>
-		<div class="container-fluid">
-			<div id="top-toolbar-wrapper">
-				<div id="list-toolbar-items">
-					<ul>
-						<li><a href="kenh14.vn">Magazine</a></li>
-						<li><a href="kenh14.vn">Đọc chậm</a></li>
-						<li><a href="kenh14.vn">Photo story</a></li>
-						<li><a href="kenh14.vn">Live green</a></li>
+<body onload="loadMenu()">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 toolbar">
+				<div class="centered">
+					<ul class="toolbar-items">
+						<li><a href="#">Magazine</a></li>
+						<li><a href="#">Đọc chậm</a></li>
+						<li><a href="#">Photo story</a></li>
+						<li><a href="#">Live green</a></li>
 					</ul>
-				</div>
-				<div id="toolbar-search">
-					<p></p>
-					<a href=""></a>
+					<div class="toolbar-search">
+						<input type="text" name="search" placeholder="Tìm kiếm...">
+						<a href="#"><<</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</header>
-	<main>
+		<div class="row">
+			<div class="col-12 top-header">
+				<div class="centered">
+					<div class="logo">
+						<a href="#" title="Tin tức, giải trí, xã hội"></a>
+					</div>
+					<div class="trending">
+						<ul>
+							<li><a href="#" title="Phong vừa qua tuổi 21">Phong vừa qua tuổi 21</a></li>
+							<li><a href="#" title="Phong năm nay 22 tuổi">Phong năm nay 22 tuổi</a></li>
+							<li><a href="#" title="Phong sắp sang tuổi 23">Phong sắp sang tuổi 23</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 bottom-header">
+				<div class="centered">
+					<ul class="main-menu-items">
+						<li class="home-button main-menu-item"><a href="#">Trang chủ</a></li>
+						<li class="main-menu-item"><a href="#">Star</a></li>
+						<li class="main-menu-item"><a href="#">TV Show</a></li>
+						<li class="main-menu-item"><a href="#">Ciné</a></li>
+						<li class="main-menu-item"><a href="#">Musik</a></li>
+						<li class="main-menu-item"><a href="#">Beauty&Fashion</a></li>
+						<li class="main-menu-item"><a href="#">Đời sống</a></li>
+						<li class="main-menu-item"><a href="#">Du lịch</a></li>
+						<li class="main-menu-item"><a href="#">Xã hội</a></li>
+						<li class="main-menu-item"><a href="#">Thế giới</a></li>
+						<li class="main-menu-item"><a href="#">Sport</a></li>
+						<li class="main-menu-item"><a href="#">Học đường</a></li>
+						<li class="main-menu-item"><a href="#">Video</a></li>
+						<li class="expand-button main-menu-item">
+							<a href="#">...</a>
+						</li>	
+						<div class="row menu-expand-wrapper hidden" style="display: none;">
+							<div class="col-12">
+								<div class="centered">
+									<ul class="menu-expand-items clearfix">
+										<!-- cần phải có clearfix class để thẻ ul có thể nhận các thẻ con li với attr float -->
+										<li class="menu-expand-item">
+											<h4><a href="#">Đời Sống</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Nhân Vật</a></li>
+												<li><a href="#">Xem-Ăn-Chơi</a></li>
+												<li><a href="#">Trạm Yêu</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">Beauty & Fashion</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Skincare</a></li>
+												<li><a href="#">Makeup & Hair</a></li>
+												<li><a href="#">Review by Kenh14</a></li>
+												<li><a href="#">Fashion</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">Sport</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Bóng Đá</a></li>
+												<li><a href="#">Hậu Trường</a></li>
+												<li><a href="#">Thể Thao Khác</a></li>
+												<li><a href="#">Ngoại Hạng Anh</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">Musik</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Âu-Mỹ</a></li>
+												<li><a href="#">Châu Á</a></li>
+												<li><a href="#">Việt Nam</a></li>
+												<li><a href="#">Edm</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">Ciné</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Mọt Phim</a></li>
+												<li><a href="#">Phim Việt Nam</a></li>
+												<li><a href="#">Phim Âu-Mỹ</a></li>
+												<li><a href="#">Phim Châu Á</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">2-Tek</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Mobile</a></li>
+												<li><a href="#">Concept</a></li>
+												<li><a href="#">Ứng Dụng/Thủ Thuật</a></li>
+												<li><a href="#">Công Nghệ Vui</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">Star</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Sao Việt</a></li>
+												<li><a href="#">Paparazzi</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">Xã Hội</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Pháp Luật</a></li>
+												<li><a href="#">Nóng Trên Mạng</a></li>
+												<li><a href="#">Sống Xanh</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">Học Đường</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Người Việt Trẻ</a></li>
+												<li><a href="#">Du Học</a></li>
+												<li><a href="#">Bản Tin 46'</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">Thế Giới</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Chùm Ảnh</a></li>
+												<li><a href="#">Khám Phá</a></li>
+												<li><a href="#">Lạ & Cool</a></li>
+											</ul>
+										</li>
+										<li class="menu-expand-item">
+											<h4><a href="#">Esports</a></h4>
+											<ul class="expanded-item-list">
+												<li><a href="#">Cao Thủ</a></li>
+												<li><a href="#">Đấu Trường</a></li>
+											</ul>
+										</li>
+									</ul>		
+									<div class="menu-expand-topics">
+										<div class="topic-labels">Nhóm chủ đề</div>
+										<ul class="expand-topic-items">
+											<li>
+												<a href="#">
+													<img src="">
+													<span>LGBT</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img src="">
+													<span>Nhà là nơi để về</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img src="">
+													<span>Magazine</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img src="">
+													<span>Đọc chậm</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img src="">
+													<span>Photo Story</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img src="">
+													<span>Hành trình WeChoice</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img src="">
+													<span>Live Green</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="other-link-items"></div>
+								</div>
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 banner-ads">
+				<div class="centered" style="text-align: center;">
+					Looking for sponsors
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 body-content">
+				<div class="centered">
+					<div class="row">
+						<div class="col-8">
+							<div class="row">
+								<div class="col-12 feature-news">
+									<div class="row">
+										<div class="col-8 feature-new-left">
+											<a href="" title="Đặt Nhật Lê và tình mới của Quang Hải lên bàn cân: Ai đang thắng thế trên mặt trận vóc dáng và nhan sắc?">
+												<img src="https://kenh14cdn.com/zoom/460_289/2019/8/15/img2695-1565844036170699907192-crop-15658440543481168195905.jpg">
+											</a>
+											<h2 class="feature-new-left-title">
+												<a href="" title="Đặt Nhật Lê và tình mới của Quang Hải lên bàn cân: Ai đang thắng thế trên mặt trận vóc dáng và nhan sắc?">Đặt Nhật Lê và tình mới của Quang Hải lên bàn cân: Ai đang thắng thế trên mặt trận vóc dáng và nhan sắc?</a>
+											</h2>
+											<p>Tình mới và tình cũ của Quang Hải không tránh khỏi cảnh bị dân mạng so sánh.</p>
+										</div>
+										<div class="col-4 feature-new-right">
+											<a href="" title="Nhà tuyển dụng hỏi: Có 100 con chim, làm thế nào để bắt được tất cả mà không con nào chạy thoát, nữ ứng viên trả lời một câu khiến quản lý gật gù và nhận ngay vào làm">
+												<img src="https://kenh14cdn.com/zoom/220_289/2019/8/15/recruiterv002abdribbble-15658449560191993926693-crop-15658449741022011213003.png">
+											</a>
+											<h2>
+												<a href="" title="Nhà tuyển dụng hỏi: Có 100 con chim, làm thế nào để bắt được tất cả mà không con nào chạy thoát, nữ ứng viên trả lời đúng 1 câu đơn giản rồi được nhận ngay vào làm">Nhà tuyển dụng hỏi: Có 100 con chim, làm thế nào để bắt được tất cả mà không con nào chạy thoát, nữ ứng viên trả lời đúng 1 câu đơn giản rồi được nhận ngay vào làm</a>
+											</h2>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 feature-news-list">	
+											<ul class="clearfix">
+												<li>
+													<a href="">
+														<img src="https://kenh14cdn.com/zoom/280_175/2019/8/15/ngang-8-1565861570516201115175-crop-15658615892842000584708.jpg" title='Phillip Nguyễn - chàng thiếu gia với khí chất "tổng tài" chuyên "đốn tim" á hậu và hot girl'>
+													</a>
+													<h4>
+														<a href="" title='Phillip Nguyễn - chàng thiếu gia với khí chất "tổng tài" chuyên "đốn tim" á hậu và hot girl'>Phillip Nguyễn - chàng thiếu gia với khí chất "tổng tài" chuyên "đốn tim" á hậu và hot girl</a>
+													</h4>
+												</li>
+												<li>
+													<a href="">
+														<img src="https://kenh14cdn.com/zoom/280_175/2019/8/15/untitled-15658641369271814647197-crop-15658641506611632171914.jpg" title='Ái nữ 20 tuổi nhà Minh Nhựa chụp ảnh cưới với bạn trai 5 năm, hứa hẹn đám cưới "cực khủng" sắp diễn ra'>
+													</a>
+													<h4>
+														<a href="" title='Ái nữ 20 tuổi nhà Minh Nhựa chụp ảnh cưới với bạn trai 5 năm, hứa hẹn đám cưới "cực khủng" sắp diễn ra'>Ái nữ 20 tuổi nhà Minh Nhựa chụp ảnh cưới với bạn trai 5 năm, hứa hẹn đám cưới "cực khủng" sắp diễn ra</a>
+													</h4>
+												</li>
+												<li>
+													<a href="">
+														<img src="https://kenh14cdn.com/zoom/280_175/2019/8/15/ngang-8-1565861570516201115175-crop-15658615892842000584708.jpg" title='Phillip Nguyễn - chàng thiếu gia với khí chất "tổng tài" chuyên "đốn tim" á hậu và hot girl'>
+													</a>
+													<h4>
+														<a href="" title='Phillip Nguyễn - chàng thiếu gia với khí chất "tổng tài" chuyên "đốn tim" á hậu và hot girl'>Phillip Nguyễn - chàng thiếu gia với khí chất "tổng tài" chuyên "đốn tim" á hậu và hot girl</a>
+													</h4>
+												</li>
+											</ul>
+											<div class="slider-status">
+												<span></span>
+												<span></span>
+												<span></span>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+							<div class="row">
+								<div class="col-12 regular-news">
+									<ul class="regular-new-list">	
+										<li class="regular-news clearfix">
+											<div class="regular-news-left">
+												<a href=""><img src="https://kenh14cdn.com/thumb_w/250/2019/photo1565883506272-1565883506554-crop-1565883666947116649352.jpg" title="Một nghiên cứu gần đây đã chỉ ra 10 thói quen người thành công hay làm trước khi đi ngủ: Bạn cũng nên thử để đạt hiệu quả đáng kinh ngạc"></a>
+											</div>
+											<div class="regular-news-right">
+												<h3 class="regular-news-title">
+													<a href="@" title="Một nghiên cứu gần đây đã chỉ ra 10 thói quen người thành công hay làm trước khi đi ngủ: Bạn cũng nên thử để đạt hiệu quả đáng kinh ngạc">Một nghiên cứu gần đây đã chỉ ra 10 thói quen người thành công hay làm trước khi đi ngủ: Bạn cũng nên thử để đạt hiệu quả đáng kinh ngạc</a>
+												</h3>
+												<div class="category-name">
+													<a href="" title="Học đường">Học đường</a>
+												</div>
+												<p>Điều cuối cùng bạn làm trước khi đi ngủ có xu hướng tác động đáng kể đến tâm trạng và mức năng lượng của bạn vào ngày ...</p>
+											</div>
+										</li>
+										<li class="regular-news clearfix">
+											<div class="regular-news-left">
+												<a href=""><img src="https://kenh14cdn.com/thumb_w/250/2019/8/15/photo-13-15658833839291638090259-crop-156588463957029034086.jpg" title='Xông hơi Jjimjibang Hàn Quốc: Buộc phải "trần như nhộng" khiến người nước ngoài sốc nặng nhưng lại chứa đựng nét văn hóa "trút bỏ khoảng cách" đầy ý nghĩa'></a>
+											</div>
+											<div class="regular-news-right">
+												<h3 class="regular-news-title">
+													<a href="@" title='Xông hơi Jjimjibang Hàn Quốc: Buộc phải "trần như nhộng" khiến người nước ngoài sốc nặng nhưng lại chứa đựng nét văn hóa "trút bỏ khoảng cách" đầy ý nghĩa'>Xông hơi Jjimjibang Hàn Quốc: Buộc phải "trần như nhộng" khiến người nước ngoài sốc nặng nhưng lại chứa đựng nét văn hóa "trút bỏ khoảng cách" đầy ý nghĩa</a>
+												</h3>
+												<div class="category-name">
+													<a href="" title="Ăn - Quẩy - Đi">Ăn - Quẩy - Đi</a>
+												</div>
+												<p>Người ta thường nói đùa rằng đừng nói bạn đã từng sang Hàn Quốc chơi nếu bạn chưa một lần bước vào phòng xông hơi ...</p>
+											</div>
+										</li>
+										<li class="regular-news clearfix">
+											<div class="regular-news-left">
+												<a href=""><img src="https://kenh14cdn.com/thumb_w/250/2019/8/15/photo-1-15658388636722097076523-15658650237572139729260-crop-15658650829691686053086.jpg" title='7 tips mặc đẹp khiến bạn phải thốt lên: Giá như mình biết sớm hơn thì phong cách đã thăng hạng từ "tám đời" nào rồi!'></a>
+											</div>
+											<div class="regular-news-right">
+												<h3 class="regular-news-title">
+													<a href="@" title='7 tips mặc đẹp khiến bạn phải thốt lên: Giá như mình biết sớm hơn thì phong cách đã thăng hạng từ "tám đời" nào rồi!'>7 tips mặc đẹp khiến bạn phải thốt lên: Giá như mình biết sớm hơn thì phong cách đã thăng hạng từ "tám đời" nào rồi!</a>
+												</h3>
+												<div class="category-name">
+													<a href="" title="Beauty & Fashion">Beauty & Fashion</a>
+												</div>
+												<p>Có thể khẳng định chắc nịch với bạn rằng, mặc đẹp không hề khó vì luôn tồn tại những bí kíp diện đồ siêu đơn giản và ...</p>
+											</div>
+										</li>
+										<li class="regular-news clearfix">
+											<div class="regular-news-left">
+												<a href=""><img src="https://kenh14cdn.com/thumb_w/250/2019/8/15/collage-1565884189204866454130-crop-1565884211928395632901.png" title='"Thánh hack tuổi" Jang Nara có lẽ phải kiêng dè Yoona sau sự kiện hôm nay: 29 tuổi mà như nữ sinh trung học!'></a>
+											</div>
+											<div class="regular-news-right">
+												<h3 class="regular-news-title">
+													<a href="@" title='"Thánh hack tuổi" Jang Nara có lẽ phải kiêng dè Yoona sau sự kiện hôm nay: 29 tuổi mà như nữ sinh trung học!'>"Thánh hack tuổi" Jang Nara có lẽ phải kiêng dè Yoona sau sự kiện hôm nay: 29 tuổi mà như nữ sinh trung học!</a>
+												</h3>
+												<div class="category-name">
+													<a href="" title="Star">Star</a>
+												</div>
+												<p>Tranh thủ hôm nay ngày lễ, Sooyoung cùng tài tử hơn 7 tuổi hẹn hò bình yên tại rạp phim và còn ủng hộ Yoona</p>
+											</div>
+										</li>
+										<li class="regular-news clearfix">
+											<div class="regular-news-left">
+												<a href=""><img src="https://kenh14cdn.com/thumb_w/250/2019/8/15/8-1565883586608617447049-crop-15658839323131924983393.png" title='Gái đảm tự làm bánh Trung thu cũng "thua xa" bà Tân Vlog với chiếc bánh "siêu to khổng lồ" tận 50kg'></a>
+											</div>
+											<div class="regular-news-right">
+												<h3 class="regular-news-title">
+													<a href="@" title='Gái đảm tự làm bánh Trung thu cũng "thua xa" bà Tân Vlog với chiếc bánh "siêu to khổng lồ" tận 50kg'>Gái đảm tự làm bánh Trung thu cũng "thua xa" bà Tân Vlog với chiếc bánh "siêu to khổng lồ" tận 50kg</a>
+												</h3>
+												<div class="category-name">
+													<a href="" title="Ăn - Quẩy - Đi">Ăn - Quẩy - Đi</a>
+												</div>
+												<p>Mỗi mùa Trung thu, các bạn gái đảm đang lại thi nhau làm bánh Trung thu nhưng năm nay "đối đầu" với bánh Trung thu ...</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 video-news">
+									<div class="video-news-head">
+										<h3>
+											<a href="">Tiêu đề video new</a>
+										</h3>
+										<div class="category-name">
+											category
+										</div>
+										<p>Nội dung video new</p>
+									</div>
+									<div class="video-news-body">
+										
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 category-news">
+									<div class="category-news-left">
+										<a href="">
+											<img src="">
+										</a>
+									</div>
+									<div class="category-news-right">
+										<h3>
+											<a href="">Tiêu đề category new</a>
+										</h3>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="col-4">Sponsors</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function loadMenu() {
+			$(".expand-button").hover(function() {
+				$(".menu-expand-wrapper").removeClass("hidden");
+				$(".menu-expand-wrapper").removeAttr("style");
+			}, function() {
+				$(".menu-expand-wrapper").addClass("hidden");
+			});
+		}
 		
-	</main>
-	<footer>
-		
-	</footer>	
+	</script>
 </body>
 </html>

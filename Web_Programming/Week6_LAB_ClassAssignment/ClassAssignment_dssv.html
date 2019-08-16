@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DANH SÁCH SINH VIÊN</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+<body onload="loadSV()">
+	<div class="container-fluid" id="groupsv">
+		<div class="row">
+			<div class="col-1 border border-dark">STT</div>
+			<div class="col-4 border border-dark">TÊN</div>
+			<div class="col-4 border border-dark">MSSV</div>
+			<div class="col-3 border border-dark">Chuc nang</div>
+		</div>
+		<div id="load-wrapper">
+			<div class="row">
+				<div class="col-1">
+					
+				</div>
+				<div class="col-4">
+					<input type="text" name="name" id="name">
+				</div>
+				<div class="col-4">
+					<input type="text" name="irn" id="irn">
+				</div>
+				<div class="col-3">
+					<button type="button" class="btn btn-primary Add" status="New" onclick="addSV()">Add SV</button>
+				</div>
+			</div>
+		</div>		
+	</div>
+	
+
+	<script type="text/javascript">
+		var listSV = [];
+		function loadSV() {
+			$.post(
+				"http://45.32.20.144/",
+				{
+					"DanhSach" : "SV"
+				},
+				function (_DSSV) {
+					listSV = _DSSV;
+					for (let index in _DSSV) {
+						let STT = +index + 1;
+						let str = "<div class='row'><div class='col-1'>" + STT + "</div><div class='col-4 hoten'>" + _DSSV[index].HoTen + "</div><div class='col-4 mssv'>" + _DSSV[index].MSSV + "</div><div class='col-1'><button type='button' class='btn btn-danger Del' onclick='deleteSV(this)'>Del SV</button></div><div class='col-1'><button type='button' class='btn btn-warning Edit' onclick='editSV(this)'>Edit SV</button>";
+
+						$("#load-wrapper").append(str);
+					}
+				},
+				"json"
+			);			
+		};
+
+		function addSV() {
+			let name = $("#name").val();
+			let irn = $("#irn").val();
+			let STT = "--";
+			if ($(".Add").attr("status") == "New") {
+				let str = "<div class='row'><div class='col-1'>" + STT + "</div><div class='col-4 hoten'>" + name + "</div><div class='col-4 mssv'>" + irn + "</div><div class='col-1'><button type='button' class='btn btn-danger Del' onclick='deleteSV(this)'>Del SV</button></div><div class='col-1'><button type='button' class='btn btn-warning Edit' onclick='editSV(this)'>Edit SV</button>";
+				$("#load-wrapper").after(str);
+			} else {
+				$(".Add").html("Add SV");
+				$(".Add").attr("status", "New");
+				$("#name").val("");
+				$("#irn").val("");
+
+				let str = "<div class='row'><div class='col-1'>" + STT + "</div><div class='col-4 hoten'>" + name + "</div><div class='col-4 mssv'>" + irn + "</div><div class='col-1'><button type='button' class='btn btn-danger Del' onclick='deleteSV(this)'>Del SV</button></div><div class='col-1'><button type='button' class='btn btn-warning Edit' onclick='editSV(this)'>Edit SV</button>";
+
+			}
+			
+		};
+
+		function deleteSV(e) {
+			var _confirm = confirm("Are you sure?");
+			if (_confirm) {
+				$(e).parent().parent().remove();
+			}
+		};
+
+		function editSV(e) {
+			_node = $(e).parents(".row").find(".hoten");
+			var _name = _node.html();
+			var _irn = _node.next().html();
+
+			$("#name").val(_name);
+			$("#irn").val(_irn);
+			$(".Add").html("Update");
+			$(".Add").attr("status", "Update")
+		}		
+	</script>
+
+</body>
+</html>

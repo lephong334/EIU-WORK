@@ -1,38 +1,366 @@
-.container-fluid {
-	background: #111;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
-#top-toolbar-wrapper {
-	background: #111;
-	height: 25px;
-	position: relative;
-	z-index: 1;
-	width: 1040px;
-	margin: 0 auto;
+h2, h3, h4, h5, h6 {
+	font-size: 0em !important;
 }
-#list-toolbar-items {
-	float: left;
+a {
+	text-decoration: none;
+	display: block;
 }
-#list-toolbar-items ul {
+a:hover {
+	text-decoration: none !important;
+	color: #6e6e6e !important;
+}
+ul {
 	list-style: none;
+	margin-bottom: 0px !important;
 }
-#list-toolbar-items ul li {
-	display: inline-block;
+@font-face {
+  font-family: SFD-SemiBold;
+  src: url(fonts/SFD-Bold.woff2);
 }
-#list-toolbar-items ul li a {
-	padding-left: 20px;
-	background-image: url(kenh14.vn/web_images/toolbar-topic-icon.png);
-	background-position: left 6px center;
-	background-repeat: no-repeat;
+@font-face {
+  font-family: SFD-Medium;
+  src: url(fonts/SFD-Medium.woff2);
+}
+.hidden {
+	visibility: hidden;
+}
+.centered {	
+	margin: auto;
+	max-width: 1040px;
+	position: relative;
+}
 
-	font-family: SFD-Semibold;
+/*Toolbar CSS*/
+.toolbar {
+	background-color: #111;
+	height: 25px;
+}
+.toolbar-items {
+	float: left;
+	padding-left: 0px;
+}
+.toolbar-items li {
+	background: url('images/toolbar-topic-icon.png') no-repeat;
+	background-position: 7px center;	
+	display: inline-block;
+	padding-left: 20px;	
+}
+.toolbar-items li a {	
 	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
 	font-size: 12px;
-	line-height: 25px;
+	font-family: SFD-Semibold;
+}
+.toolbar-search {
+	height: 25px;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    float: right;
+}
+.toolbar-search input {
+	height: 25px;
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 0 6px;
+    font-size: 10px;
+    color: #8a8a8a;
+    width: 154px;
+    outline: none;
+    float: left;
+    line-height: 25px;
+}
+.toolbar-search a {
 	text-decoration: none;
 	color: #fff;
-	display: block;
-	/*padding: 0 8px;*/
 }
-#toolbar-search {
 
+/*Header CSS*/
+.top-header {
+	background: #f0a52b;
+    height: 70px;
+    position: relative;
+}
+.logo {
+	float: left;
+}
+.logo a {
+	background-position: 0 0; /*chọn vị trí logo*/
+    width: 157px;
+    height: 60px;
+    position: absolute;
+    float: left;
+    top: 7px;
+    left: 0px;
+    text-decoration: none;
+    background: url(http://kenh14cdn.com/web_images/sprite-k14.20.png) no-repeat;
+}
+.trending {    
+	height: 30px;
+    position: absolute;
+    top: 18px;
+    left: 230px;
+}
+.trending:before {
+	display: block;
+    width: 19px;
+    height: 12px;
+    background: url(http://kenh14cdn.com/web_images/sprite-k14.20.png) -388px -55px no-repeat; /*vị trí của hình trong ảnh lớn*/
+    position: absolute;
+    top: 10px;
+    left: 0;
+    content: '';
+}
+.trending ul {	
+	padding-left: 30px;
+}
+.trending ul li {
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+	padding-left: 15px;
+}
+.trending ul li a {
+	display: block;
+    height: 28px;
+    padding: 0 15px;
+    font-family: SFD-Medium;
+    font-size: 14px;
+    line-height: 28px;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.5);
+    -webkit-border-radius: 100px;
+    -webkit-transition: border .3s;
+    background: rgba(0,0,0,0.02);
+}
+.bottom-header {
+	background: #a70e1a;
+    height: 40px;
+    position: relative;
+}
+.main-menu-items {
+	height: 40px;
+	float: left;
+	margin: 0px;
+	padding-left: 0px;
+}
+.main-menu-item {
+	float: left;
+	position: relative;
+
+}
+.main-menu-item a {	
+    font-size: 15px;
+    color: #fff;
+    padding: 0 8px;
+    display: block;
+    text-decoration: none;
+    line-height: 40px;
+    position: relative;
+    font-family: SFD-Medium;
+}
+.main-menu-item a:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #730912;
+}
+.home-button {
+	padding: 0 5px;
+}
+.home-button a {
+	width: 20px;
+    padding: 0;
+    background: url(http://kenh14cdn.com/web_images/sprite-k14.20.png) -494px 12px no-repeat;
+    text-indent: -99999px;
+    overflow: hidden;
+}
+.expand-button {
+	padding: 0 12px;
+}
+.expand-button a {
+	background: url(http://kenh14cdn.com/web_images/sprite-k14.20.png) -319px -104px no-repeat;
+    width: 30px;
+    text-indent: -99999px;
+    overflow: hidden;
+}
+.menu-expand-wrapper {
+	background: #fff;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 9999;
+    opacity: 1;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+}
+.menu-expand-items {
+	padding: 20px 0 10px;
+	border-bottom: 1px solid #eaeaea;
+	position: relative;
+}
+.menu-expand-item {
+	height: 152px;
+	width: 160px;
+	float: left;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.menu-expand-item h4 a {
+	font-family: SFD-Semibold;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    padding-left: 6px;
+    border-left: 3px solid #ff6610;
+    height: 12px;
+    line-height: 12px;
+    background-color: transparent!important;
+}
+.expanded-item-list {
+	padding-inline-start: 0px;
+}
+.expanded-item-list li {
+	height: 20px;
+	margin-right: 0;
+	margin-bottom: 10px;
+}
+.expanded-item-list li a {
+	margin-bottom: 10px;
+	font-size: 13px;
+    color: #666;
+    text-decoration: none;
+    background-color: transparent!important;
+}
+.menu-expand-topics {
+	position: relative;
+}
+
+/*Content*/
+.feature-new-left {
+	width: 460px;
+}
+.feature-new-left img {
+	display: block;
+    width: 460px;
+    height: 289px;
+}
+.feature-new-left-title a {
+	font-family: SFD-SemiBold;
+    font-weight: normal;
+    letter-spacing: 0;
+    font-size: 26px;
+    line-height: 30px;
+    color: #2d2d2d;
+}
+.feature-new-left p {
+	font-size: 14px;
+    line-height: 20px;
+    color: #444;
+    margin: 10px 0;
+}
+.feature-new-right {
+	width: 220px;
+}
+.feature-new-right img {
+	display: block;
+    width: 220px;
+    height: 289px;
+}
+.feature-new-right h2 a {
+	display: block;
+	width: 220px;
+    padding: 12px 15px 20px;
+    background-image: linear-gradient(#ebebeb,#fff);
+    font-family: SFD-Bold;
+    font-size: 19px;
+    line-height: 22px;
+    color: #222;
+    text-decoration: none;
+}
+.feature-news-list ul {
+	position: relative;
+}
+.feature-news-list li {
+	width: 200px;
+    margin-right: 20px;
+    float: left;
+    position: relative;
+}
+.feature-news-list img {
+    display: block;
+    width: 200px;
+    height: 156px;
+    margin-bottom: 8px;
+}
+.feature-news-list a {
+	font-family: SFD-SemiBold;
+    font-size: 17px;
+    line-height: 22px;
+    color: #222;
+}
+.slider-status {
+	position: relative;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 2px solid #fb512a !important; 
+}
+.slider-status span {
+	width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #fb512a !important;
+}
+.regular-news li {
+    padding: 25px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+.regular-news-left a {
+	float: left;
+	margin-right: 10px;
+}
+.regular-news-left {
+	width: 250px;
+	float: left;
+}
+.regular-news-right {
+	width: 420px;
+	float: right;
+}
+.regular-news-right p {
+    font-size: 13px;
+    font-family: Arial;
+    color: #4d4d4d;
+    line-height: 18px;
+    display: block;
+    margin-bottom: 0px;
+}
+.regular-news-title a {
+	font-family: SFD-SemiBold;
+    font-size: 20px;
+    line-height: 26px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: -5px;
+}
+.category-name a {
+    font-family: SFD-SemiBold;
+    font-size: 14px;
+    color: #41455e;
+    text-decoration: none;
 }
