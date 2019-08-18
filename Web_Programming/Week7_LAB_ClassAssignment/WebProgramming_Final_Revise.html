@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<style type="text/css">
+        .wrap {
+            max-width: 1170px;
+            width: 100%;
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body onload="loadScript()">
+	<div class="wrap">
+        <h1>DANH SÁCH SINH VIÊN</h1>
+        <div class="list-class" onclick="showDSLop()">
+        	<ul>
+        		<li onclick="showSVByClass('Lop1')">Lop 1</li>
+        		<li onclick="showSVByClass('Lop2')">Lop 2</li>
+        	</ul>
+        </div>
+        <div class="list-head">
+            <div class="row">
+                <div class="col-1 border border-dark">STT</div>
+                <div class="col-3 border border-dark">Họ và tên</div>
+                <div class="col-3 border border-dark">MSSV</div>
+                <div class="col-3 border border-dark">Lop</div>
+                <div class="col-2 border border-dark">Chức năng</div>                    
+            </div>
+        </div>
+        <div class="list-body">
+        	
+        </div>
+        <div id="Group-New">
+        	<div class="row">
+	            <div class="col-1"></div>
+	            <div class="col-3">
+	                <input type="text" class="form-control" id="HoTen" placeholder="Enter Họ và tên">
+	            </div>
+	            <div class="col-3">
+	                <input type="text" class="form-control" id="MSSV" placeholder="Enter MSSV">
+	            </div>
+	            <div class="col-3">
+	            	<select class="form-control form-control-sm" id="MaLop">
+					  	<option value="Lop1">Lop 1</option>
+					  	<option value="Lop2">Lop 2</option>
+					</select>
+	            </div>
+	            <div class="col-2">
+	                <button type="button" class="btn btn-primary" id="New">Thêm mới</button>
+	            </div>
+	        </div>
+       </div>        
+    </div>
+
+    <script type="text/javascript">
+    	// Lấy dữ liệu từ server
+        // $.post(
+        //     "http://45.32.20.144/",
+        //     {
+        //         "DanhSach" : "SV",
+        //     },
+        //     function(_DSSV) {
+        //         DSs = _DSSV;
+        //         ListDS(_DSSV);
+        //     },
+        //     "json"
+        // );
+        // Lay du lieu ve, thi du lieu la bien cuc bo, can gan thanh bien toan cuc de su dung 
+        var DSL = [
+        			{
+
+        			}
+        ];   
+    	var DSSV = [
+                    {
+                        "HoTen" : "Nguyễn Văn A",
+                        "MSSV"  : "2230",
+                        "Email" : "a@student.com",
+                        "MaLop"	: "Lop1"
+                    },
+                    {
+                        "HoTen" : "Đoàn Văn B",
+                        "MSSV"  : "2227",
+                        "Email" : "b@student.com",
+                        "MaLop"	: "Lop2"
+                    },
+                    {
+                        "HoTen" : "Đỗ Thị C",
+                        "MSSV"  : "2219",
+                        "Email" : "c@student.com",
+                        "MaLop"	: "Lop1"
+                    },
+                    {
+                        "HoTen" : "Đỗ Nam D",
+                        "MSSV"  : "2319",
+                        "Email" : "d@student.com",
+                        "MaLop"	: "Lop2"
+                    },
+        ];
+
+        DSSV.sort(function(a,b) {
+        	if (a.MSSV > b.MSSV) return 1;
+        	if (a.MSSV > b.MSSV) return -1;
+        	return 0;
+        })
+
+    	function loadScript() {
+    		AddSV();
+    		showSV();
+    	};
+
+    	function showSV() {
+    		$(".list-body").html("");
+
+    		for (let _index in DSSV) {
+    			let _STT = +_index + 1;
+    			let _str = 
+    			`<div class="row">
+                    <div class="col-1">${_STT}</div>
+                    <div class="col-3">${DSSV[_index].HoTen}</div>
+                    <div class="col-3">${DSSV[_index].MSSV}</div>
+                    <div class="col-3">${DSSV[_index].MaLop}</div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-warning Edit" onclick="EditSV(${DSSV[_index].MSSV})">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="DelSV(${DSSV[_index].MSSV})">Del</button>
+                    </div>
+                </div>`;
+                $(".list-body").append(_str);
+    		}
+    	};
+
+    	function showDSLop() {
+    		// $(".list-class").html("");
+    	};
+
+    	function showSVByClass(_classId) {
+    		$(".list-body").html("");
+
+    		let _STT = 1;
+    		for (let _index in DSSV) {
+    			if (DSSV[_index].MaLop == _classId) {
+	    			let _str = 
+	    			`<div class="row">
+	                    <div class="col-1">${_STT}</div>
+	                    <div class="col-3">${DSSV[_index].HoTen}</div>
+	                    <div class="col-3">${DSSV[_index].MSSV}</div>
+                    	<div class="col-3">${DSSV[_index].MaLop}</div>
+	                    <div class="col-2">
+	                        <button type="button" class="btn btn-warning Edit" onclick="EditSV(${DSSV[_index].MSSV})">Edit</button>
+	                        <button type="button" class="btn btn-danger Del" onclick="DelSV(${DSSV[_index].MSSV})">Del</button>
+	                    </div>
+	                </div>`;
+	                $(".list-body").append(_str);
+	                _STT++;
+    			}    			
+    		}
+    	}
+
+    	function AddSV() {
+    		$("#New").click(function() {
+    			//Them bien kiem tra, neu la "Them" thi add binh thuong;
+    			//Neu la "Cap nhat" thi tim sv trong mang, sau do cap nhat lai gia tri cua mang lay tu input;
+    			let _hoTen = $("#HoTen").val();
+    			let _mssv = $("#MSSV").val();
+    			let _lop = $("#MaLop").val();
+    			let _newSV = {
+    				"HoTen"	: _hoTen,
+    				"MSSV"	: _mssv,
+    				"Email"	: _hoTen + "@gmail.com",
+    				"MaLop"	: _lop
+    			};
+    			DSSV.push(_newSV);
+    			showSV();
+    		});
+    	};
+
+    	function DelSV(_mssv) {
+    		var _confirm = confirm("Are you sure?");
+    		if (_confirm) {
+    			for (let _index in DSSV) {
+    				if (_mssv == DSSV[_index].MSSV) {
+    					DSSV.splice(_index, 1);
+    					showSV();
+    					break;
+    				}
+    			}
+    		}
+    	};
+
+    	function EditSV(_mssv) {
+    		let _student;
+    		//kiem tra sv ton tai trong mang, sau do gan vao bien _student de xu ly;
+    		//Gan toan bo thong tin len phan Input de chinh sua;
+    		//Doi trang thai button "Them" thanh "Cap nhat";
+    		//Kiem tra trang thai, neu la "Cap nhat" thi goi ham AddSV();
+    	};
+
+    </script>
+</body>
+</html>

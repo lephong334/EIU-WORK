@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<style type="text/css">
+		header, footer {
+			text-align: center;
+		}
+		select {
+			height: 38px !important;
+		}
+		.list-group-item {
+			cursor: pointer;
+		}
+	</style>
+	<title>Final Exam</title>
+</head>
+<body onload="loadScript()">
+	<header>
+		List Object Header
+	</header>
+	<main>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-4">
+					<aside>
+						<div class="card bg-light mb-3" style="max-width: 100%;">
+						  	<div class="card-header">Object Type List</div>
+						  	<div class="card-body">
+							    <div class="list-group">
+								  	<ul class="list-group type-list-wrapper">
+									  	
+									</ul>
+								</div>
+						  	</div>
+						</div>
+					</aside>
+				</div>
+				<div class="col-8">
+					<section>
+						<div class="card bg-light mb-3" style="max-width: 100%;">
+						  	<div class="card-header">Add/Edit Object</div>
+						  	<div class="card-body">
+						    	<div class="row">
+						    		<div class="col-4">
+						    			<input type="text" class="form-control" id="Name" placeholder="Enter Họ và tên">
+						    		</div>
+						    		<div class="col-4">
+						    			<input type="text" class="form-control" id="Id" placeholder="Enter MSSV">
+						    		</div>
+						    		<div class="col-2">
+						    			<select class="form-control form-control-sm type-select-wrapper" id="Type">
+										  	
+										</select>
+						    		</div>
+						    		<div class="col-2">
+						    			<button type="button" class="btn btn-primary" id="New" status="AddNew">Add</button>
+						    		</div>
+						    	</div>
+						  	</div>
+						</div>
+						<div class="card bg-light mb-3" style="max-width: 100%;">
+						  	<div class="card-header">List Object</div>
+						  	<div class="card-body">
+						  		<div class="row">
+						  			<div class="col-1 border border-dark">INDEX</div>
+					                <div class="col-3 border border-dark">NAME</div>
+					                <div class="col-3 border border-dark">ID</div>
+					                <div class="col-3 border border-dark">TYPE</div>
+					                <div class="col-2 border border-dark">FUNCTION</div> 
+								</div>
+						  		<div class="object-list-wrapper">
+						  			
+						  		</div>
+						  	</div>
+						</div>
+					</section>
+				</div>
+			</div>			
+		</div>		
+	</main>
+	<footer>
+		List Object Footer
+	</footer>
+	<script type="text/javascript">
+		// Lấy dữ liệu từ server
+        // $.post(
+        //     "http://45.32.20.144/",
+        //     {
+        //         "DanhSach" : "SV",
+        //     },
+        //     function(_DSSV) {
+        //         DSs = _DSSV;
+        //         ListDS(_DSSV);
+        //     },
+        //     "json"
+        // );
+        // Lay du lieu ve, thi du lieu la bien cuc bo, can gan thanh bien toan cuc de su dung 
+        var ListObject = [
+        			{
+
+        			}
+        ];   
+    	var DSSV = [
+                    {
+                        "HoTen" : "Nguyễn Văn A",
+                        "MSSV"  : "2230",
+                        "Email" : "a@student.com",
+                        "MaLop"	: "Lop1"
+                    },
+                    {
+                        "HoTen" : "Đoàn Văn B",
+                        "MSSV"  : "2227",
+                        "Email" : "b@student.com",
+                        "MaLop"	: "Lop2"
+                    },
+                    {
+                        "HoTen" : "Đỗ Thị C",
+                        "MSSV"  : "2219",
+                        "Email" : "c@student.com",
+                        "MaLop"	: "Lop1"
+                    },
+                    {
+                        "HoTen" : "Đỗ Nam D",
+                        "MSSV"  : "2210",
+                        "Email" : "d@student.com",
+                        "MaLop"	: "Lop2"
+                    },
+        ];
+
+        DSSV.sort(function(a,b) {
+        	if (a.MSSV > b.MSSV) return 1;
+        	if (a.MSSV > b.MSSV) return -1;
+        	return 0;
+        });
+
+    	function loadScript() {    		
+    		ShowObject();
+    		AddObject();
+    		ShowType();
+    	};
+
+    	function ShowObject() {
+    		$(".object-list-wrapper").html("");
+
+    		for (let _index in DSSV) {
+    			let _STT = +_index + 1;
+    			let _str = 
+    			`<div class="row">
+                    <div class="col-1 border border-dark">${_STT}</div>
+                    <div class="col-3 border border-dark">${DSSV[_index].HoTen}</div>
+                    <div class="col-3 border border-dark">${DSSV[_index].MSSV}</div>
+                    <div class="col-3 border border-dark">${DSSV[_index].MaLop}</div>
+                    <div class="col-2 border border-dark">
+                        <button type="button" class="btn btn-warning Edit" onclick="EditObject('${DSSV[_index].MSSV}')">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="DelObject('${DSSV[_index].MSSV}')">Del</button>
+                    </div>
+                </div>`;
+                $(".object-list-wrapper").append(_str);
+    		}
+    	};
+
+    	function ShowType() {
+    		$(".type-list-wrapper").html("");
+    		//get Type list using array map()
+    		//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+    		//Cach 1: map cua js
+    		//let _ListType = DSSV.map(x => x.MaLop);
+
+
+    		//https://api.jquery.com/jQuery.map/
+    		//Cach 2: map cua jquery
+    		let _ListType = [];
+    		_ListType = $.map(DSSV, function(_value, _key){
+    			return _value.MaLop;
+    		});
+
+    		_ListType.sort(function(a,b) {
+    			if (a > b) return 1;
+    			if (a < b) return -1;
+    			return 0;
+    		});
+
+
+    		let _checkExist = "";
+    		for (let _index in _ListType) {
+    			if (_ListType[_index] != _checkExist) {
+    				//Show Type List in 
+    				let _str = `<li class="list-group-item list-group-item-action" onclick="ShowObjectByClass('${_ListType[_index]}')">${_ListType[_index]}</li>`;
+    				$(".type-list-wrapper").append(_str);
+
+    				//Show Type List in selection
+    				let _strSelect = `<option value="${_ListType[_index]}">${_ListType[_index]}</option>`;
+    				$(".type-select-wrapper").append(_strSelect);
+
+    				_checkExist = _ListType[_index];
+    			}
+    			else {
+    				continue;
+    			}
+    		}
+    	};
+
+    	function ShowObjectByClass(_classId) {
+    		$(".object-list-wrapper").html("");
+
+    		let _STT = 1;
+    		for (let _index in DSSV) {
+    			if (DSSV[_index].MaLop == _classId) {
+	    			let _str = 
+	    			`<div class="row">
+	                    <div class="col-1 border border-dark">${_STT}</div>
+	                    <div class="col-3 border border-dark">${DSSV[_index].HoTen}</div>
+	                    <div class="col-3 border border-dark">${DSSV[_index].MSSV}</div>
+	                    <div class="col-3 border border-dark">${DSSV[_index].MaLop}</div>
+	                    <div class="col-2 border border-dark">
+	                        <button type="button" class="btn btn-warning Edit" onclick="EditObject('${DSSV[_index].MSSV}')">Edit</button>
+	                        <button type="button" class="btn btn-danger Del" onclick="DelObject('${DSSV[_index].MSSV}')">Del</button>
+	                    </div>
+	                </div>`;
+	                $(".object-list-wrapper").append(_str);
+	                _STT++;
+    			}    			
+    		}
+    	}
+
+    	function AddObject() {
+    		//Them bien kiem tra, neu la "Them" thi add binh thuong;
+    		//Neu la "Cap nhat" thi tim sv trong mang, sau do cap nhat lai gia tri cua mang lay tu input;
+    		$("#New").click(function() {
+    			//Them moi
+    			if ($("#New").attr("status") == "AddNew") {
+    				let _hoTen = $("#Name").val();
+	    			let _mssv = $("#Id").val();
+	    			let _lop = $("#Type").val();
+	    			let _newSV = {
+	    				"HoTen"	: _hoTen,
+	    				"MSSV"	: _mssv,
+	    				"Email"	: _hoTen + "@gmail.com",
+	    				"MaLop"	: _lop
+	    			};
+	    			DSSV.push(_newSV);
+	    			ShowObject();
+    			};
+
+    			//Cap nhat
+    			if ($("#New").attr("status") == "Update") {
+    				let _hoTen = $("#Name").val();
+	    			let _mssv = $("#Id").val();
+	    			let _lop = $("#Type").val();
+	    			let _newSV = {
+	    				"HoTen"	: _hoTen,
+	    				"MSSV"	: _mssv,
+	    				"Email"	: _hoTen + "@gmail.com",
+	    				"MaLop"	: _lop
+	    			};
+	    			//Neu khong cho phep sua MSSV
+	    			//DelObject(_mssv);
+
+	    			//Neu cho phep sua MSSV
+	    			DelObject(selectedEditObjectId);
+
+	    			DSSV.push(_newSV);
+	    			ShowObject();
+
+	    			$("#New").attr("status", "New");
+    				$("#New").html("Add");
+	    			$("#Name").val("");
+	    			$("#Id").val("");
+	    			//get the first option
+	    			$("#Type").val($("#Type option:first").val());
+    			};   			
+    			
+    		});
+    	};
+
+    	function DelObject(_mssv) {
+    		var _confirm = confirm("Are you sure?");
+    		if (_confirm) {
+    			for (let _index in DSSV) {
+    				if (_mssv == DSSV[_index].MSSV) {
+    					DSSV.splice(_index, 1);
+    					ShowObject();
+    					break;
+    				}
+    			}
+    		}
+    	};
+
+    	//Neu cho phep sua MSSV, bien de luu MSSV truoc khi thay doi
+    	let selectedEditObjectId;
+
+    	function EditObject(_mssv) {
+    		let _student;
+    		
+    		//kiem tra sv ton tai trong mang, sau do gan vao bien _student de xu ly;
+    		for (let _index in DSSV) {
+    			if (DSSV[_index].MSSV == _mssv) {
+    				_student = DSSV[_index];
+    				break;
+    			}
+    		}
+    		
+    		//Gan toan bo thong tin len phan Input de chinh sua;
+    		$("#Name").val(_student.HoTen);
+	    	$("#Id").val(_student.MSSV);
+	    	$("#Type").val(_student.MaLop);
+
+    		//Doi trang thai button "Them" thanh "Cap nhat";
+    		$("#New").attr("status", "Update");
+    		$("#New").html("Update");
+
+    		//Neu khong cho phep sua MSSV
+    		//$("#Id").prop("disabled", true);
+
+    		//Neu cho phep sua MSSV
+    		selectedEditObjectId = _student.MSSV;
+    	};
+	</script>
+</body>
+</html>
